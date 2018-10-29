@@ -382,22 +382,29 @@ namespace FinalProject_Team19
         private void lstOut_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index;
-            index = lstOut.SelectedIndex;
+            if (lstOut.SelectedIndex >= 2)
+            {
+                index = lstOut.SelectedIndex - 2;
+            }
+            else
+            {
+                return;
+            }
             txtFirst.Text = mFirst[index];
             txtLast.Text = mLast[index];
             txtHeight.Text = mHeight[index].ToString("n");
             txtWeight.Text = mWeight[index].ToString("n");
             radKG.Checked = true;
             radM.Checked = true;
-            if(mAge[index] == "< 18")
+            if (mAge[index] == "< 18")
             {
                 cboAge.SelectedIndex = 0;
             }
-            else if(mAge[index] == "18 - 40")
+            else if (mAge[index] == "18 - 40")
             {
                 cboAge.SelectedIndex = 1;
             }
-            else if(mAge[index] == "41 - 65")
+            else if (mAge[index] == "41 - 65")
             {
                 cboAge.SelectedIndex = 2;
             }

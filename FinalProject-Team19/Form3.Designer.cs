@@ -57,8 +57,8 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.grbSearch = new System.Windows.Forms.GroupBox();
-            this.radFirst = new System.Windows.Forms.RadioButton();
             this.radLast = new System.Windows.Forms.RadioButton();
+            this.radFirst = new System.Windows.Forms.RadioButton();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.grbHUnits.SuspendLayout();
@@ -114,6 +114,7 @@
             // 
             // txtFirst
             // 
+            this.txtFirst.BackColor = System.Drawing.Color.Cyan;
             this.txtFirst.Location = new System.Drawing.Point(90, 25);
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(121, 20);
@@ -121,6 +122,7 @@
             // 
             // txtLast
             // 
+            this.txtLast.BackColor = System.Drawing.Color.Cyan;
             this.txtLast.Location = new System.Drawing.Point(91, 58);
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(120, 20);
@@ -142,6 +144,7 @@
             // 
             // txtHeight
             // 
+            this.txtHeight.BackColor = System.Drawing.Color.Cyan;
             this.txtHeight.Location = new System.Drawing.Point(307, 25);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(100, 20);
@@ -206,6 +209,7 @@
             // 
             // txtWeight
             // 
+            this.txtWeight.BackColor = System.Drawing.Color.Cyan;
             this.txtWeight.Location = new System.Drawing.Point(307, 100);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(100, 20);
@@ -256,6 +260,7 @@
             // 
             // lstOut
             // 
+            this.lstOut.BackColor = System.Drawing.Color.SkyBlue;
             this.lstOut.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstOut.FormattingEnabled = true;
             this.lstOut.Location = new System.Drawing.Point(23, 213);
@@ -335,6 +340,7 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.BackColor = System.Drawing.Color.Cyan;
             this.txtSearch.Location = new System.Drawing.Point(51, 26);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
@@ -351,17 +357,6 @@
             this.grbSearch.TabStop = false;
             this.grbSearch.Text = "Search Selection:";
             // 
-            // radFirst
-            // 
-            this.radFirst.AutoSize = true;
-            this.radFirst.Location = new System.Drawing.Point(4, 19);
-            this.radFirst.Name = "radFirst";
-            this.radFirst.Size = new System.Drawing.Size(75, 17);
-            this.radFirst.TabIndex = 21;
-            this.radFirst.TabStop = true;
-            this.radFirst.Text = "First Name";
-            this.radFirst.UseVisualStyleBackColor = true;
-            // 
             // radLast
             // 
             this.radLast.AutoSize = true;
@@ -372,6 +367,17 @@
             this.radLast.TabStop = true;
             this.radLast.Text = "Last Name";
             this.radLast.UseVisualStyleBackColor = true;
+            // 
+            // radFirst
+            // 
+            this.radFirst.AutoSize = true;
+            this.radFirst.Location = new System.Drawing.Point(4, 19);
+            this.radFirst.Name = "radFirst";
+            this.radFirst.Size = new System.Drawing.Size(75, 17);
+            this.radFirst.TabIndex = 21;
+            this.radFirst.TabStop = true;
+            this.radFirst.Text = "First Name";
+            this.radFirst.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
@@ -398,6 +404,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(577, 419);
             this.Controls.Add(this.btnWStats);
             this.Controls.Add(this.btnAStats);
