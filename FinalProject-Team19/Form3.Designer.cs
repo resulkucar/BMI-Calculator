@@ -33,9 +33,9 @@
             this.lblHeight = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
             this.lblAge = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtFirst = new System.Windows.Forms.TextBox();
+            this.txtLast = new System.Windows.Forms.TextBox();
+            this.cboAge = new System.Windows.Forms.ComboBox();
             this.txtHeight = new System.Windows.Forms.TextBox();
             this.radCM = new System.Windows.Forms.RadioButton();
             this.radM = new System.Windows.Forms.RadioButton();
@@ -47,13 +47,6 @@
             this.radLB = new System.Windows.Forms.RadioButton();
             this.grbWUnits = new System.Windows.Forms.GroupBox();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.radFirst = new System.Windows.Forms.RadioButton();
-            this.radLast = new System.Windows.Forms.RadioButton();
-            this.grbSearch = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lstOut = new System.Windows.Forms.ListBox();
             this.btnDisplay = new System.Windows.Forms.Button();
             this.btnBMI = new System.Windows.Forms.Button();
@@ -61,6 +54,13 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAStats = new System.Windows.Forms.Button();
             this.btnWStats = new System.Windows.Forms.Button();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.grbSearch = new System.Windows.Forms.GroupBox();
+            this.radFirst = new System.Windows.Forms.RadioButton();
+            this.radLast = new System.Windows.Forms.RadioButton();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grbHUnits.SuspendLayout();
             this.grbWUnits.SuspendLayout();
             this.grbSearch.SuspendLayout();
@@ -99,9 +99,9 @@
             this.lblWeight.AutoSize = true;
             this.lblWeight.Location = new System.Drawing.Point(260, 103);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(41, 13);
+            this.lblWeight.Size = new System.Drawing.Size(44, 13);
             this.lblWeight.TabIndex = 3;
-            this.lblWeight.Text = "Weight";
+            this.lblWeight.Text = "Weight:";
             // 
             // lblAge
             // 
@@ -112,28 +112,33 @@
             this.lblAge.TabIndex = 4;
             this.lblAge.Text = "Age:";
             // 
-            // textBox1
+            // txtFirst
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtFirst.Location = new System.Drawing.Point(90, 25);
+            this.txtFirst.Name = "txtFirst";
+            this.txtFirst.Size = new System.Drawing.Size(121, 20);
+            this.txtFirst.TabIndex = 5;
             // 
-            // textBox2
+            // txtLast
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtLast.Location = new System.Drawing.Point(91, 58);
+            this.txtLast.Name = "txtLast";
+            this.txtLast.Size = new System.Drawing.Size(120, 20);
+            this.txtLast.TabIndex = 6;
             // 
-            // comboBox1
+            // cboAge
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(90, 95);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cboAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAge.FormattingEnabled = true;
+            this.cboAge.Items.AddRange(new object[] {
+            "< 18",
+            "18 - 40",
+            "41 - 65",
+            "> 65"});
+            this.cboAge.Location = new System.Drawing.Point(90, 95);
+            this.cboAge.Name = "cboAge";
+            this.cboAge.Size = new System.Drawing.Size(121, 21);
+            this.cboAge.TabIndex = 7;
             // 
             // txtHeight
             // 
@@ -247,6 +252,77 @@
             this.btnEnter.TabIndex = 18;
             this.btnEnter.Text = "Enter";
             this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
+            // 
+            // lstOut
+            // 
+            this.lstOut.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstOut.FormattingEnabled = true;
+            this.lstOut.Location = new System.Drawing.Point(23, 213);
+            this.lstOut.Name = "lstOut";
+            this.lstOut.Size = new System.Drawing.Size(437, 173);
+            this.lstOut.TabIndex = 26;
+            this.lstOut.SelectedIndexChanged += new System.EventHandler(this.lstOut_SelectedIndexChanged);
+            // 
+            // btnDisplay
+            // 
+            this.btnDisplay.Location = new System.Drawing.Point(464, 213);
+            this.btnDisplay.Name = "btnDisplay";
+            this.btnDisplay.Size = new System.Drawing.Size(91, 23);
+            this.btnDisplay.TabIndex = 27;
+            this.btnDisplay.Text = "Display";
+            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
+            // 
+            // btnBMI
+            // 
+            this.btnBMI.Location = new System.Drawing.Point(464, 242);
+            this.btnBMI.Name = "btnBMI";
+            this.btnBMI.Size = new System.Drawing.Size(92, 23);
+            this.btnBMI.TabIndex = 28;
+            this.btnBMI.Text = "BMI";
+            this.btnBMI.UseVisualStyleBackColor = true;
+            this.btnBMI.Click += new System.EventHandler(this.btnBMI_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(465, 329);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(91, 23);
+            this.btnClear.TabIndex = 29;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(465, 358);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(91, 23);
+            this.btnExit.TabIndex = 30;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnAStats
+            // 
+            this.btnAStats.Location = new System.Drawing.Point(464, 271);
+            this.btnAStats.Name = "btnAStats";
+            this.btnAStats.Size = new System.Drawing.Size(91, 23);
+            this.btnAStats.TabIndex = 31;
+            this.btnAStats.Text = "Age Stats";
+            this.btnAStats.UseVisualStyleBackColor = true;
+            this.btnAStats.Click += new System.EventHandler(this.btnAStats_Click);
+            // 
+            // btnWStats
+            // 
+            this.btnWStats.Location = new System.Drawing.Point(465, 300);
+            this.btnWStats.Name = "btnWStats";
+            this.btnWStats.Size = new System.Drawing.Size(91, 23);
+            this.btnWStats.TabIndex = 32;
+            this.btnWStats.Text = "Weight Stats";
+            this.btnWStats.UseVisualStyleBackColor = true;
+            this.btnWStats.Click += new System.EventHandler(this.btnWStats_Click);
             // 
             // lblSearch
             // 
@@ -263,6 +339,17 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
             this.txtSearch.TabIndex = 20;
+            // 
+            // grbSearch
+            // 
+            this.grbSearch.Controls.Add(this.radLast);
+            this.grbSearch.Controls.Add(this.radFirst);
+            this.grbSearch.Location = new System.Drawing.Point(172, 10);
+            this.grbSearch.Name = "grbSearch";
+            this.grbSearch.Size = new System.Drawing.Size(170, 44);
+            this.grbSearch.TabIndex = 23;
+            this.grbSearch.TabStop = false;
+            this.grbSearch.Text = "Search Selection:";
             // 
             // radFirst
             // 
@@ -286,17 +373,6 @@
             this.radLast.Text = "Last Name";
             this.radLast.UseVisualStyleBackColor = true;
             // 
-            // grbSearch
-            // 
-            this.grbSearch.Controls.Add(this.radLast);
-            this.grbSearch.Controls.Add(this.radFirst);
-            this.grbSearch.Location = new System.Drawing.Point(172, 10);
-            this.grbSearch.Name = "grbSearch";
-            this.grbSearch.Size = new System.Drawing.Size(170, 44);
-            this.grbSearch.TabIndex = 23;
-            this.grbSearch.TabStop = false;
-            this.grbSearch.Text = "Search Selection:";
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(348, 26);
@@ -305,6 +381,7 @@
             this.btnSearch.TabIndex = 24;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel1
             // 
@@ -316,69 +393,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(437, 65);
             this.panel1.TabIndex = 25;
-            // 
-            // lstOut
-            // 
-            this.lstOut.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstOut.FormattingEnabled = true;
-            this.lstOut.Location = new System.Drawing.Point(23, 213);
-            this.lstOut.Name = "lstOut";
-            this.lstOut.Size = new System.Drawing.Size(437, 173);
-            this.lstOut.TabIndex = 26;
-            // 
-            // btnDisplay
-            // 
-            this.btnDisplay.Location = new System.Drawing.Point(464, 213);
-            this.btnDisplay.Name = "btnDisplay";
-            this.btnDisplay.Size = new System.Drawing.Size(91, 23);
-            this.btnDisplay.TabIndex = 27;
-            this.btnDisplay.Text = "Display";
-            this.btnDisplay.UseVisualStyleBackColor = true;
-            // 
-            // btnBMI
-            // 
-            this.btnBMI.Location = new System.Drawing.Point(464, 242);
-            this.btnBMI.Name = "btnBMI";
-            this.btnBMI.Size = new System.Drawing.Size(92, 23);
-            this.btnBMI.TabIndex = 28;
-            this.btnBMI.Text = "BMI";
-            this.btnBMI.UseVisualStyleBackColor = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(465, 329);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(91, 23);
-            this.btnClear.TabIndex = 29;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(465, 358);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(91, 23);
-            this.btnExit.TabIndex = 30;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            // 
-            // btnAStats
-            // 
-            this.btnAStats.Location = new System.Drawing.Point(464, 271);
-            this.btnAStats.Name = "btnAStats";
-            this.btnAStats.Size = new System.Drawing.Size(91, 23);
-            this.btnAStats.TabIndex = 31;
-            this.btnAStats.Text = "Age Stats";
-            this.btnAStats.UseVisualStyleBackColor = true;
-            // 
-            // btnWStats
-            // 
-            this.btnWStats.Location = new System.Drawing.Point(465, 300);
-            this.btnWStats.Name = "btnWStats";
-            this.btnWStats.Size = new System.Drawing.Size(91, 23);
-            this.btnWStats.TabIndex = 32;
-            this.btnWStats.Text = "Weight Stats";
-            this.btnWStats.UseVisualStyleBackColor = true;
             // 
             // Form3
             // 
@@ -398,9 +412,9 @@
             this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.grbHUnits);
             this.Controls.Add(this.txtHeight);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cboAge);
+            this.Controls.Add(this.txtLast);
+            this.Controls.Add(this.txtFirst);
             this.Controls.Add(this.lblAge);
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblHeight);
@@ -428,9 +442,9 @@
         private System.Windows.Forms.Label lblHeight;
         private System.Windows.Forms.Label lblWeight;
         private System.Windows.Forms.Label lblAge;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtFirst;
+        private System.Windows.Forms.TextBox txtLast;
+        private System.Windows.Forms.ComboBox cboAge;
         private System.Windows.Forms.TextBox txtHeight;
         private System.Windows.Forms.RadioButton radCM;
         private System.Windows.Forms.RadioButton radM;
@@ -442,13 +456,6 @@
         private System.Windows.Forms.RadioButton radLB;
         private System.Windows.Forms.GroupBox grbWUnits;
         private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.RadioButton radFirst;
-        private System.Windows.Forms.RadioButton radLast;
-        private System.Windows.Forms.GroupBox grbSearch;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox lstOut;
         private System.Windows.Forms.Button btnDisplay;
         private System.Windows.Forms.Button btnBMI;
@@ -456,5 +463,12 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnAStats;
         private System.Windows.Forms.Button btnWStats;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.GroupBox grbSearch;
+        private System.Windows.Forms.RadioButton radLast;
+        private System.Windows.Forms.RadioButton radFirst;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Panel panel1;
     }
 }

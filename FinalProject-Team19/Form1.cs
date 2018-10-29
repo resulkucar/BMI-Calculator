@@ -61,7 +61,7 @@ namespace FinalProject_Team19
 
             int ctr;
 
-            this.Close();
+            this.Hide();
             Form3 f3 = new Form3();
             f3.ShowDialog();
         }
