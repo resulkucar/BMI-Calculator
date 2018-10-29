@@ -36,6 +36,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblAsterisk = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblName
@@ -106,11 +108,35 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblAsterisk
+            // 
+            this.lblAsterisk.AutoSize = true;
+            this.lblAsterisk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk.Location = new System.Drawing.Point(211, 115);
+            this.lblAsterisk.Name = "lblAsterisk";
+            this.lblAsterisk.Size = new System.Drawing.Size(14, 18);
+            this.lblAsterisk.TabIndex = 8;
+            this.lblAsterisk.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(211, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(14, 18);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "*";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 220);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAsterisk);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.txtPassword);
@@ -136,5 +162,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblAsterisk;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -20,3 +20,4 @@ C:\Users\Aditya Arole\Desktop\FinalProject-Team19\FinalProject-Team19\obj\Debug\
 \\nas01.itap.purdue.edu\puhome\pu.data\Desktop\finalproject-cnit155-master\finalproject-cnit155-master\FinalProject-Team19\obj\Debug\FinalProject-Team19.csproj.CoreCompileInputs.cache
 \\nas01.itap.purdue.edu\puhome\pu.data\Desktop\finalproject-cnit155-master\finalproject-cnit155-master\FinalProject-Team19\obj\Debug\FinalProject-Team19.exe
 \\nas01.itap.purdue.edu\puhome\pu.data\Desktop\finalproject-cnit155-master\finalproject-cnit155-master\FinalProject-Team19\obj\Debug\FinalProject-Team19.pdb
+\\nas01.itap.purdue.edu\puhome\pu.data\desktop\finalproject-cnit155-master\finalproject-cnit155-master\FinalProject-Team19\obj\Debug\FinalProject_Team19.Form3.resources

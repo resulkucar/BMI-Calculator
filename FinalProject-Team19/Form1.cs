@@ -19,9 +19,9 @@ namespace FinalProject_Team19
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Form2 f2 = new Form2();
             f2.ShowDialog();
+            this.Close();
         }
 
         private void DisplayMessage(string msg)
@@ -61,7 +61,7 @@ namespace FinalProject_Team19
 
             int ctr;
 
-            this.Hide();
+            this.Close();
             Form3 f3 = new Form3();
             f3.ShowDialog();
         }

@@ -46,7 +46,7 @@ namespace FinalProject_Team19
                 btnSignUp.Enabled = false;
             }
 
-            this.Hide();
+            this.Close();
             Form1 f1 = new Form1();
             f1.ShowDialog();
         }
