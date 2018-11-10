@@ -36,16 +36,11 @@
             this.txtFirst = new System.Windows.Forms.TextBox();
             this.txtLast = new System.Windows.Forms.TextBox();
             this.cboAge = new System.Windows.Forms.ComboBox();
-            this.txtHeight = new System.Windows.Forms.TextBox();
-            this.radCM = new System.Windows.Forms.RadioButton();
+            this.txtHeight1 = new System.Windows.Forms.TextBox();
             this.radM = new System.Windows.Forms.RadioButton();
-            this.radFT = new System.Windows.Forms.RadioButton();
-            this.radIN = new System.Windows.Forms.RadioButton();
+            this.radS = new System.Windows.Forms.RadioButton();
             this.grbHUnits = new System.Windows.Forms.GroupBox();
             this.txtWeight = new System.Windows.Forms.TextBox();
-            this.radKG = new System.Windows.Forms.RadioButton();
-            this.radLB = new System.Windows.Forms.RadioButton();
-            this.grbWUnits = new System.Windows.Forms.GroupBox();
             this.btnEnter = new System.Windows.Forms.Button();
             this.lstOut = new System.Windows.Forms.ListBox();
             this.btnDisplay = new System.Windows.Forms.Button();
@@ -61,8 +56,10 @@
             this.radFirst = new System.Windows.Forms.RadioButton();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblHeight1 = new System.Windows.Forms.Label();
+            this.txtHeight2 = new System.Windows.Forms.TextBox();
+            this.lblIN = new System.Windows.Forms.Label();
             this.grbHUnits.SuspendLayout();
-            this.grbWUnits.SuspendLayout();
             this.grbSearch.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +94,7 @@
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
-            this.lblWeight.Location = new System.Drawing.Point(260, 103);
+            this.lblWeight.Location = new System.Drawing.Point(260, 61);
             this.lblWeight.Name = "lblWeight";
             this.lblWeight.Size = new System.Drawing.Size(44, 13);
             this.lblWeight.TabIndex = 3;
@@ -141,66 +138,45 @@
             this.cboAge.Name = "cboAge";
             this.cboAge.Size = new System.Drawing.Size(121, 21);
             this.cboAge.TabIndex = 7;
+            this.cboAge.SelectedIndexChanged += new System.EventHandler(this.cboAge_SelectedIndexChanged);
             // 
-            // txtHeight
+            // txtHeight1
             // 
-            this.txtHeight.BackColor = System.Drawing.Color.Cyan;
-            this.txtHeight.Location = new System.Drawing.Point(307, 25);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(100, 20);
-            this.txtHeight.TabIndex = 8;
-            // 
-            // radCM
-            // 
-            this.radCM.AutoSize = true;
-            this.radCM.Location = new System.Drawing.Point(59, 17);
-            this.radCM.Name = "radCM";
-            this.radCM.Size = new System.Drawing.Size(39, 17);
-            this.radCM.TabIndex = 10;
-            this.radCM.TabStop = true;
-            this.radCM.Text = "cm";
-            this.radCM.UseVisualStyleBackColor = true;
+            this.txtHeight1.BackColor = System.Drawing.Color.Cyan;
+            this.txtHeight1.Location = new System.Drawing.Point(307, 25);
+            this.txtHeight1.Name = "txtHeight1";
+            this.txtHeight1.Size = new System.Drawing.Size(37, 20);
+            this.txtHeight1.TabIndex = 8;
             // 
             // radM
             // 
             this.radM.AutoSize = true;
             this.radM.Location = new System.Drawing.Point(20, 17);
             this.radM.Name = "radM";
-            this.radM.Size = new System.Drawing.Size(33, 17);
+            this.radM.Size = new System.Drawing.Size(53, 17);
             this.radM.TabIndex = 9;
             this.radM.TabStop = true;
-            this.radM.Text = "m";
+            this.radM.Text = "metric";
             this.radM.UseVisualStyleBackColor = true;
+            this.radM.CheckedChanged += new System.EventHandler(this.radM_CheckedChanged);
             // 
-            // radFT
+            // radS
             // 
-            this.radFT.AutoSize = true;
-            this.radFT.Location = new System.Drawing.Point(20, 40);
-            this.radFT.Name = "radFT";
-            this.radFT.Size = new System.Drawing.Size(31, 17);
-            this.radFT.TabIndex = 11;
-            this.radFT.TabStop = true;
-            this.radFT.Text = "ft";
-            this.radFT.UseVisualStyleBackColor = true;
-            // 
-            // radIN
-            // 
-            this.radIN.AutoSize = true;
-            this.radIN.Location = new System.Drawing.Point(59, 40);
-            this.radIN.Name = "radIN";
-            this.radIN.Size = new System.Drawing.Size(33, 17);
-            this.radIN.TabIndex = 12;
-            this.radIN.TabStop = true;
-            this.radIN.Text = "in";
-            this.radIN.UseVisualStyleBackColor = true;
+            this.radS.AutoSize = true;
+            this.radS.Location = new System.Drawing.Point(20, 40);
+            this.radS.Name = "radS";
+            this.radS.Size = new System.Drawing.Size(66, 17);
+            this.radS.TabIndex = 11;
+            this.radS.TabStop = true;
+            this.radS.Text = "standard";
+            this.radS.UseVisualStyleBackColor = true;
+            this.radS.CheckedChanged += new System.EventHandler(this.radS_CheckedChanged);
             // 
             // grbHUnits
             // 
-            this.grbHUnits.Controls.Add(this.radIN);
-            this.grbHUnits.Controls.Add(this.radFT);
-            this.grbHUnits.Controls.Add(this.radCM);
+            this.grbHUnits.Controls.Add(this.radS);
             this.grbHUnits.Controls.Add(this.radM);
-            this.grbHUnits.Location = new System.Drawing.Point(440, 11);
+            this.grbHUnits.Location = new System.Drawing.Point(424, 25);
             this.grbHUnits.Name = "grbHUnits";
             this.grbHUnits.Size = new System.Drawing.Size(116, 66);
             this.grbHUnits.TabIndex = 13;
@@ -210,49 +186,16 @@
             // txtWeight
             // 
             this.txtWeight.BackColor = System.Drawing.Color.Cyan;
-            this.txtWeight.Location = new System.Drawing.Point(307, 100);
+            this.txtWeight.Location = new System.Drawing.Point(307, 58);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(100, 20);
             this.txtWeight.TabIndex = 14;
             // 
-            // radKG
-            // 
-            this.radKG.AutoSize = true;
-            this.radKG.Location = new System.Drawing.Point(21, 15);
-            this.radKG.Name = "radKG";
-            this.radKG.Size = new System.Drawing.Size(37, 17);
-            this.radKG.TabIndex = 15;
-            this.radKG.TabStop = true;
-            this.radKG.Text = "kg";
-            this.radKG.UseVisualStyleBackColor = true;
-            // 
-            // radLB
-            // 
-            this.radLB.AutoSize = true;
-            this.radLB.Location = new System.Drawing.Point(64, 15);
-            this.radLB.Name = "radLB";
-            this.radLB.Size = new System.Drawing.Size(33, 17);
-            this.radLB.TabIndex = 16;
-            this.radLB.TabStop = true;
-            this.radLB.Text = "lb";
-            this.radLB.UseVisualStyleBackColor = true;
-            // 
-            // grbWUnits
-            // 
-            this.grbWUnits.Controls.Add(this.radLB);
-            this.grbWUnits.Controls.Add(this.radKG);
-            this.grbWUnits.Location = new System.Drawing.Point(439, 88);
-            this.grbWUnits.Name = "grbWUnits";
-            this.grbWUnits.Size = new System.Drawing.Size(116, 48);
-            this.grbWUnits.TabIndex = 17;
-            this.grbWUnits.TabStop = false;
-            this.grbWUnits.Text = "Units:";
-            // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(480, 142);
+            this.btnEnter.Location = new System.Drawing.Point(280, 93);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.Size = new System.Drawing.Size(127, 43);
             this.btnEnter.TabIndex = 18;
             this.btnEnter.Text = "Enter";
             this.btnEnter.UseVisualStyleBackColor = true;
@@ -400,12 +343,41 @@
             this.panel1.Size = new System.Drawing.Size(437, 65);
             this.panel1.TabIndex = 25;
             // 
+            // lblHeight1
+            // 
+            this.lblHeight1.AutoSize = true;
+            this.lblHeight1.Location = new System.Drawing.Point(317, 9);
+            this.lblHeight1.Name = "lblHeight1";
+            this.lblHeight1.Size = new System.Drawing.Size(0, 13);
+            this.lblHeight1.TabIndex = 33;
+            // 
+            // txtHeight2
+            // 
+            this.txtHeight2.Location = new System.Drawing.Point(350, 25);
+            this.txtHeight2.Name = "txtHeight2";
+            this.txtHeight2.Size = new System.Drawing.Size(33, 20);
+            this.txtHeight2.TabIndex = 34;
+            this.txtHeight2.Visible = false;
+            // 
+            // lblIN
+            // 
+            this.lblIN.AutoSize = true;
+            this.lblIN.Location = new System.Drawing.Point(359, 9);
+            this.lblIN.Name = "lblIN";
+            this.lblIN.Size = new System.Drawing.Size(15, 13);
+            this.lblIN.TabIndex = 35;
+            this.lblIN.Text = "in";
+            this.lblIN.Visible = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(577, 419);
+            this.Controls.Add(this.lblIN);
+            this.Controls.Add(this.txtHeight2);
+            this.Controls.Add(this.lblHeight1);
             this.Controls.Add(this.btnWStats);
             this.Controls.Add(this.btnAStats);
             this.Controls.Add(this.btnExit);
@@ -415,10 +387,9 @@
             this.Controls.Add(this.lstOut);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEnter);
-            this.Controls.Add(this.grbWUnits);
             this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.grbHUnits);
-            this.Controls.Add(this.txtHeight);
+            this.Controls.Add(this.txtHeight1);
             this.Controls.Add(this.cboAge);
             this.Controls.Add(this.txtLast);
             this.Controls.Add(this.txtFirst);
@@ -431,8 +402,6 @@
             this.Text = "BMI Calculator-FinalProject By Team19";
             this.grbHUnits.ResumeLayout(false);
             this.grbHUnits.PerformLayout();
-            this.grbWUnits.ResumeLayout(false);
-            this.grbWUnits.PerformLayout();
             this.grbSearch.ResumeLayout(false);
             this.grbSearch.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -452,16 +421,11 @@
         private System.Windows.Forms.TextBox txtFirst;
         private System.Windows.Forms.TextBox txtLast;
         private System.Windows.Forms.ComboBox cboAge;
-        private System.Windows.Forms.TextBox txtHeight;
-        private System.Windows.Forms.RadioButton radCM;
+        private System.Windows.Forms.TextBox txtHeight1;
         private System.Windows.Forms.RadioButton radM;
-        private System.Windows.Forms.RadioButton radFT;
-        private System.Windows.Forms.RadioButton radIN;
+        private System.Windows.Forms.RadioButton radS;
         private System.Windows.Forms.GroupBox grbHUnits;
         private System.Windows.Forms.TextBox txtWeight;
-        private System.Windows.Forms.RadioButton radKG;
-        private System.Windows.Forms.RadioButton radLB;
-        private System.Windows.Forms.GroupBox grbWUnits;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.ListBox lstOut;
         private System.Windows.Forms.Button btnDisplay;
@@ -477,5 +441,8 @@
         private System.Windows.Forms.RadioButton radFirst;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblHeight1;
+        private System.Windows.Forms.TextBox txtHeight2;
+        private System.Windows.Forms.Label lblIN;
     }
 }

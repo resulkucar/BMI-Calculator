@@ -73,10 +73,10 @@ namespace FinalProject_Team19
                 return false;
             }
 
-            if(double.TryParse(txtHeight.Text, out height)==false)
+            if(double.TryParse(txtHeight1.Text, out height)==false)
             {
                 DisplayMessage("Please enter a real number in height.");
-                txtHeight.Focus();
+                txtHeight1.Focus();
                 return false;
             }
 
@@ -90,7 +90,7 @@ namespace FinalProject_Team19
             if(height <= 0)
             {
                 DisplayMessage("Please enter a height greater than 0.");
-                txtHeight.Focus();
+                txtHeight1.Focus();
                 return false;
             }
 
@@ -107,15 +107,9 @@ namespace FinalProject_Team19
                 return false;
             }
 
-            if(radCM.Checked==false && radM.Checked == false && radFT.Checked == false && radIN.Checked == false)
+            if (radM.Checked == false && radS.Checked == false)
             {
-                DisplayMessage("Please select a unit of height.");
-                return false;
-            }
-
-            if(radKG.Checked == false && radLB.Checked == false)
-            {
-                DisplayMessage("Please select a unit of weight.");
+                DisplayMessage("Please select a unit.");
                 return false;
             }
 
@@ -126,16 +120,13 @@ namespace FinalProject_Team19
         {
             txtFirst.Clear();
             txtLast.Clear();
-            txtHeight.Clear();
+            txtHeight1.Clear();
+            txtHeight2.Clear();
             txtWeight.Clear();
             txtSearch.Clear();
             cboAge.SelectedIndex = -1;
-            radCM.Checked = false;
             radM.Checked = false;
-            radFT.Checked = false;
-            radIN.Checked = false;
-            radKG.Checked = false;
-            radLB.Checked = false;
+            radS.Checked = false;
             radFirst.Checked = false;
             radLast.Checked = false;
         }
@@ -203,6 +194,8 @@ namespace FinalProject_Team19
             return;
         }
 
+       
+
         private void btnEnter_Click(object sender, EventArgs e)
         {
             lstOut.Items.Clear();
@@ -214,7 +207,7 @@ namespace FinalProject_Team19
 
             string first = txtFirst.Text;
             string last = txtLast.Text;
-            double height = double.Parse(txtHeight.Text);
+            double height = double.Parse(txtHeight1.Text);
             double weight = double.Parse(txtWeight.Text);
             string age = cboAge.Text;
 
@@ -222,28 +215,18 @@ namespace FinalProject_Team19
             mLast[mIndex] = last;
             mAge[mIndex] = age;
 
-            if(radLB.Checked==true)
+            if(radS.Checked==true)
             {
+                int ft = int.Parse(txtHeight1.Text);
+                int inch = int.Parse(txtHeight2.Text);
+                height = (ft / 3.281) + (inch / 39.37);
                 weight /= 2.205;
             }
 
             WeightStats(weight);
 
             mWeight[mIndex] = weight;
-
-            if(radFT.Checked == true)
-            {
-                height /= 3.281;
-            }
-            else if(radIN.Checked==true)
-            {
-                height /= 39.37;
-            }
-            else if(radCM.Checked==true)
-            {
-                height /= 100;
-            }
-
+            
             mHeight[mIndex] = height;
             mIndex++;
 
@@ -392,9 +375,8 @@ namespace FinalProject_Team19
             }
             txtFirst.Text = mFirst[index];
             txtLast.Text = mLast[index];
-            txtHeight.Text = mHeight[index].ToString("n");
+            txtHeight1.Text = mHeight[index].ToString("n");
             txtWeight.Text = mWeight[index].ToString("n");
-            radKG.Checked = true;
             radM.Checked = true;
             if (mAge[index] == "< 18")
             {
@@ -411,6 +393,29 @@ namespace FinalProject_Team19
             else
             {
                 cboAge.SelectedIndex = 3;
+            }
+        }
+
+        private void radS_CheckedChanged(object sender, EventArgs e)
+        {
+            lblHeight1.Text = "ft";
+            lblIN.Visible = true;
+            txtHeight2.Visible = true;
+        }
+
+        private void radM_CheckedChanged(object sender, EventArgs e)
+        {
+            lblHeight1.Text = "m";
+            lblIN.Visible = false;
+            txtHeight2.Visible = false;
+        }
+
+        private void cboAge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboAge.SelectedIndex == 0 || cboAge.SelectedIndex == 3)
+            {
+                DisplayMessage("BMI calculation is not ideal for your age");
+                return;
             }
         }
     }
