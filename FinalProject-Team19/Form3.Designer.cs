@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.lblFirst = new System.Windows.Forms.Label();
             this.lblLast = new System.Windows.Forms.Label();
             this.lblHeight = new System.Windows.Forms.Label();
@@ -59,9 +60,13 @@
             this.lblHeight1 = new System.Windows.Forms.Label();
             this.txtHeight2 = new System.Windows.Forms.TextBox();
             this.lblIN = new System.Windows.Forms.Label();
+            this.lblW1 = new System.Windows.Forms.Label();
+            this.btnConvert = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbHUnits.SuspendLayout();
             this.grbSearch.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFirst
@@ -85,7 +90,7 @@
             // lblHeight
             // 
             this.lblHeight.AutoSize = true;
-            this.lblHeight.Location = new System.Drawing.Point(260, 28);
+            this.lblHeight.Location = new System.Drawing.Point(287, 65);
             this.lblHeight.Name = "lblHeight";
             this.lblHeight.Size = new System.Drawing.Size(41, 13);
             this.lblHeight.TabIndex = 2;
@@ -94,7 +99,7 @@
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
-            this.lblWeight.Location = new System.Drawing.Point(260, 61);
+            this.lblWeight.Location = new System.Drawing.Point(287, 98);
             this.lblWeight.Name = "lblWeight";
             this.lblWeight.Size = new System.Drawing.Size(44, 13);
             this.lblWeight.TabIndex = 3;
@@ -111,7 +116,7 @@
             // 
             // txtFirst
             // 
-            this.txtFirst.BackColor = System.Drawing.Color.Cyan;
+            this.txtFirst.BackColor = System.Drawing.SystemColors.Window;
             this.txtFirst.Location = new System.Drawing.Point(90, 25);
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(121, 20);
@@ -119,7 +124,7 @@
             // 
             // txtLast
             // 
-            this.txtLast.BackColor = System.Drawing.Color.Cyan;
+            this.txtLast.BackColor = System.Drawing.SystemColors.Window;
             this.txtLast.Location = new System.Drawing.Point(91, 58);
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(120, 20);
@@ -142,8 +147,8 @@
             // 
             // txtHeight1
             // 
-            this.txtHeight1.BackColor = System.Drawing.Color.Cyan;
-            this.txtHeight1.Location = new System.Drawing.Point(307, 25);
+            this.txtHeight1.BackColor = System.Drawing.SystemColors.Window;
+            this.txtHeight1.Location = new System.Drawing.Point(334, 62);
             this.txtHeight1.Name = "txtHeight1";
             this.txtHeight1.Size = new System.Drawing.Size(37, 20);
             this.txtHeight1.TabIndex = 8;
@@ -176,7 +181,7 @@
             // 
             this.grbHUnits.Controls.Add(this.radS);
             this.grbHUnits.Controls.Add(this.radM);
-            this.grbHUnits.Location = new System.Drawing.Point(424, 25);
+            this.grbHUnits.Location = new System.Drawing.Point(439, 58);
             this.grbHUnits.Name = "grbHUnits";
             this.grbHUnits.Size = new System.Drawing.Size(116, 66);
             this.grbHUnits.TabIndex = 13;
@@ -185,17 +190,17 @@
             // 
             // txtWeight
             // 
-            this.txtWeight.BackColor = System.Drawing.Color.Cyan;
-            this.txtWeight.Location = new System.Drawing.Point(307, 58);
+            this.txtWeight.BackColor = System.Drawing.SystemColors.Window;
+            this.txtWeight.Location = new System.Drawing.Point(334, 95);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(100, 20);
             this.txtWeight.TabIndex = 14;
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(280, 93);
+            this.btnEnter.Location = new System.Drawing.Point(464, 142);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(127, 43);
+            this.btnEnter.Size = new System.Drawing.Size(92, 65);
             this.btnEnter.TabIndex = 18;
             this.btnEnter.Text = "Enter";
             this.btnEnter.UseVisualStyleBackColor = true;
@@ -203,7 +208,7 @@
             // 
             // lstOut
             // 
-            this.lstOut.BackColor = System.Drawing.Color.SkyBlue;
+            this.lstOut.BackColor = System.Drawing.SystemColors.Window;
             this.lstOut.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstOut.FormattingEnabled = true;
             this.lstOut.Location = new System.Drawing.Point(23, 213);
@@ -283,7 +288,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.BackColor = System.Drawing.Color.Cyan;
+            this.txtSearch.BackColor = System.Drawing.SystemColors.Window;
             this.txtSearch.Location = new System.Drawing.Point(51, 26);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
@@ -346,14 +351,14 @@
             // lblHeight1
             // 
             this.lblHeight1.AutoSize = true;
-            this.lblHeight1.Location = new System.Drawing.Point(317, 9);
+            this.lblHeight1.Location = new System.Drawing.Point(344, 46);
             this.lblHeight1.Name = "lblHeight1";
             this.lblHeight1.Size = new System.Drawing.Size(0, 13);
             this.lblHeight1.TabIndex = 33;
             // 
             // txtHeight2
             // 
-            this.txtHeight2.Location = new System.Drawing.Point(350, 25);
+            this.txtHeight2.Location = new System.Drawing.Point(377, 62);
             this.txtHeight2.Name = "txtHeight2";
             this.txtHeight2.Size = new System.Drawing.Size(33, 20);
             this.txtHeight2.TabIndex = 34;
@@ -362,19 +367,49 @@
             // lblIN
             // 
             this.lblIN.AutoSize = true;
-            this.lblIN.Location = new System.Drawing.Point(359, 9);
+            this.lblIN.Location = new System.Drawing.Point(386, 46);
             this.lblIN.Name = "lblIN";
             this.lblIN.Size = new System.Drawing.Size(15, 13);
             this.lblIN.TabIndex = 35;
             this.lblIN.Text = "in";
             this.lblIN.Visible = false;
             // 
+            // lblW1
+            // 
+            this.lblW1.AutoSize = true;
+            this.lblW1.Location = new System.Drawing.Point(440, 98);
+            this.lblW1.Name = "lblW1";
+            this.lblW1.Size = new System.Drawing.Size(0, 13);
+            this.lblW1.TabIndex = 36;
+            // 
+            // btnConvert
+            // 
+            this.btnConvert.Location = new System.Drawing.Point(277, 392);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(183, 23);
+            this.btnConvert.TabIndex = 37;
+            this.btnConvert.Text = "Height and Weight Conversion";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(389, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(224, 109);
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(577, 419);
+            this.BackColor = System.Drawing.Color.FloralWhite;
+            this.ClientSize = new System.Drawing.Size(566, 425);
+            this.Controls.Add(this.btnConvert);
+            this.Controls.Add(this.lblW1);
             this.Controls.Add(this.lblIN);
             this.Controls.Add(this.txtHeight2);
             this.Controls.Add(this.lblHeight1);
@@ -388,7 +423,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.txtWeight);
-            this.Controls.Add(this.grbHUnits);
             this.Controls.Add(this.txtHeight1);
             this.Controls.Add(this.cboAge);
             this.Controls.Add(this.txtLast);
@@ -398,14 +432,20 @@
             this.Controls.Add(this.lblHeight);
             this.Controls.Add(this.lblLast);
             this.Controls.Add(this.lblFirst);
+            this.Controls.Add(this.grbHUnits);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Form3";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "BMI Calculator-FinalProject By Team19";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.grbHUnits.ResumeLayout(false);
             this.grbHUnits.PerformLayout();
             this.grbSearch.ResumeLayout(false);
             this.grbSearch.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,5 +484,8 @@
         private System.Windows.Forms.Label lblHeight1;
         private System.Windows.Forms.TextBox txtHeight2;
         private System.Windows.Forms.Label lblIN;
+        private System.Windows.Forms.Label lblW1;
+        private System.Windows.Forms.Button btnConvert;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

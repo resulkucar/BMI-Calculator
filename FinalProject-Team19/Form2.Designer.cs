@@ -90,7 +90,7 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(45, 155);
+            this.btnSignUp.Location = new System.Drawing.Point(45, 158);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(75, 23);
             this.btnSignUp.TabIndex = 6;
@@ -100,7 +100,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(131, 155);
+            this.btnExit.Location = new System.Drawing.Point(131, 158);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 7;
@@ -134,7 +134,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 220);
+            this.BackColor = System.Drawing.Color.FloralWhite;
+            this.ClientSize = new System.Drawing.Size(245, 203);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAsterisk);
             this.Controls.Add(this.btnExit);
@@ -147,6 +148,7 @@
             this.Controls.Add(this.lblName);
             this.Name = "Form2";
             this.Text = "Register-FinalProject By Team19";
+            //this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

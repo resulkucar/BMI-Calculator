@@ -7,7 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
+/*=====================================================
+ * Group Members:
+ * Aditya Arole (aarole@purdue.edu)
+ * Charushi Tibrewal (ctibrewa@purdue.edu)
+ * Niket Panjwani (npanjwan@purdue.edu)
+ * Resul Ucar (rucar@purdue.edu)
+ * 
+ * Program Description:
+ * This program allows the user to enter their details and get their BMI and weight classification as output.
+ * We have also included a login and register page that will save the new user's details in a file.
+ * =====================================================*/
 namespace FinalProject_Team19
 {
     public partial class Form3 : Form
@@ -33,10 +45,11 @@ namespace FinalProject_Team19
         private int mWeightCtr1 = 0; //<70
         private int mWeightCtr2 = 0; //70-120
         private int mWeightCtr3 = 0; //>120
+        private string mFileName = Path.Combine(Application.StartupPath, "UserData.txt");
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -129,6 +142,11 @@ namespace FinalProject_Team19
             radS.Checked = false;
             radFirst.Checked = false;
             radLast.Checked = false;
+            lblW1.Text = "";
+            lblHeight1.Text = "";
+            txtHeight2.Visible = false;
+            lblIN.Visible = false;
+            txtFirst.Focus();
         }
 
         private void AgeStats()
@@ -399,6 +417,7 @@ namespace FinalProject_Team19
         private void radS_CheckedChanged(object sender, EventArgs e)
         {
             lblHeight1.Text = "ft";
+            lblW1.Text = "lb";
             lblIN.Visible = true;
             txtHeight2.Visible = true;
         }
@@ -406,6 +425,7 @@ namespace FinalProject_Team19
         private void radM_CheckedChanged(object sender, EventArgs e)
         {
             lblHeight1.Text = "m";
+            lblW1.Text = "kg";
             lblIN.Visible = false;
             txtHeight2.Visible = false;
         }
@@ -417,6 +437,120 @@ namespace FinalProject_Team19
                 DisplayMessage("BMI calculation is not ideal for your age");
                 return;
             }
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            //Form_Load
+            if(File.Exists(mFileName) == false)
+            {
+                return;
+            }
+            StreamReader SR = null;
+            try
+            {
+                SR = new StreamReader(mFileName);
+                while(SR.Peek() != -1)
+                {
+                    string line = SR.ReadLine();
+                    string[] parts = line.Split('\t');
+                    mFirst[mIndex] = parts[0];
+                    mLast[mIndex] = parts[1];
+                    mHeight[mIndex] = double.Parse(parts[2]);
+
+                    mWeight[mIndex] = double.Parse(parts[3]);
+                    if (mWeight[mIndex] < 70)
+                    {
+                        mWeightCtr1++;
+                    }
+                    else if (mWeight[mIndex] < 120)
+                    {
+                        mWeightCtr2++;
+                    }
+                    else
+                    {
+                        mWeightCtr3++;
+                    }
+
+                    mAge[mIndex] = parts[4];
+                    if (mAge[mIndex] == "< 18")
+                    {
+                        mAgeCtr1++;
+                    }
+
+                    else if (mAge[mIndex] == "18 - 40")
+                    {
+                        mAgeCtr2++;
+                    }
+
+                    else if (mAge[mIndex] == "41 - 65")
+                    {
+                        mAgeCtr3++;
+                    }
+
+                    else
+                    {
+                        mAgeCtr4++;
+                    }
+
+                    mBMI[mIndex] = double.Parse(parts[5]);
+                    mClass[mIndex] = parts[6];
+                    mIndex++;
+                }
+            }
+            catch(Exception ex)
+            {
+                DisplayMessage(ex.Message);
+            }
+            finally
+            {
+                if(SR != null)
+                {
+                    SR.Close();
+                }
+            }
+        }
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Form_Closing
+            StreamWriter SW = null;
+            if (MessageBox.Show("Do you want to exit?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+                txtFirst.Focus();
+                return;
+            }
+            else
+            {
+                try
+                {
+                    SW = new StreamWriter(mFileName);
+                    for (int ctr = 0; ctr < mIndex; ctr++)
+                    {
+                        SW.WriteLine(mFirst[ctr] + '\t' + mLast[ctr] + '\t' + mHeight[ctr] + '\t' + mWeight[ctr] + '\t' + mAge[ctr] + '\t' + mBMI[ctr].ToString("n") + '\t' + mClass[ctr]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DisplayMessage(ex.Message);
+                }
+                finally
+                {
+                    if (SW != null)
+                    {
+                        SW.Close();
+                    }
+                }
+            }
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 f4 = new Form4();
+            f4.ShowDialog();
+            this.Show();
         }
     }
 }
